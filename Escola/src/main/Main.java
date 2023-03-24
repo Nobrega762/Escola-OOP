@@ -47,6 +47,9 @@ public class Main {
 				System.out.println("Disciplina " + indice + "Removida com sucesso! ");
 			}
 			
+			//Invocar função para sabemos a media;
+			
+			
 		System.out.println(alu1);
 		
 		

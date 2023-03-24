@@ -51,28 +51,29 @@ public class Aluno {
 		this.disciplinas = disciplinas;
 	}
 	
-	double somaMedia = 0;
+	
 	
 	public double media() {
-		
+		double somaMedia = 0;
 		for (Disciplina disciplina : disciplinas) {
 			somaMedia += disciplina.getNota();
 		}
 		
 		
-		return somaMedia/disciplinas.size();
+		return somaMedia /disciplinas.size();
+		
 	}
 	
 	
 	public String situacaoAluno() {
-		if(media() > 7) {
+		if(media()> 7) {
 			return "Aprovado";
 		}else {
 			return "Reprovado";
 		}
 	}
 	
-
+	 
 	@Override
 	public String toString() {
 		return "Aluno [nome=" + nome + ", idade=" + idade + ", semestre=" + semestre + ", curso=" + curso
