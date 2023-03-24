@@ -29,10 +29,24 @@ public class Main {
 			disciplina.setDisciplina(nomeDisciplina);
 			disciplina.setNota(Double.valueOf(notaDisciplina));
 			
+			
+			
 			alu1.getDisciplinas().add(disciplina);
 			
 		}
-		
+			System.out.println("Deseja remover alguma disciplina? 0(sim) / 1(não)");
+			int removerDisciplina = read.nextInt();
+			
+			if(removerDisciplina == 0) {
+				
+				System.out.println("Informe o indice da disciplina que deseja remover ");
+				int indice = read.nextInt();
+				
+				alu1.getDisciplinas().remove(indice);
+				
+				System.out.println("Disciplina " + indice + "Removida com sucesso! ");
+			}
+			
 		System.out.println(alu1);
 		
 		
