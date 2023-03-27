@@ -37,17 +37,30 @@ public class Main {
 			System.out.println("Deseja remover alguma disciplina? 0(sim) / 1(não)");
 			int removerDisciplina = read.nextInt();
 			
-			if(removerDisciplina == 0) {
+			
+			int opcao = 0;
+			while(removerDisciplina == 0) {// Menu de opções
+			
+			
 				
 				System.out.println("Informe o indice da disciplina que deseja remover ");
 				int indice = read.nextInt();
 				
 				alu1.getDisciplinas().remove(indice);
 				
-				System.out.println("Disciplina " + indice + "Removida com sucesso! ");
+				System.out.println("Disciplina " + indice + " Removida com sucesso!\n ");
+				
+				System.out.println("Deseja finalizar o programa ou excluir outra disciplina? \n[1]sair [0]excluir outra disciplina");
+				opcao = read.nextInt();
+				
+				if(opcao == 1) {
+					System.out.println("Saindo do sistema!");
+					break;
+				}
+				
 			}
 			
-			//Invocar função para sabemos a media;
+			
 			
 			
 		System.out.println(alu1);
