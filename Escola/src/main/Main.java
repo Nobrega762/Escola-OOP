@@ -23,7 +23,7 @@ public class Main {
 		System.out.println("Informe o nome do Aluno: ");
 		String nome = read.nextLine();
 		
-		System.out.println("Informe a idade do Aluno: ");
+		/*System.out.println("Informe a idade do Aluno: ");
 		int idade = read.nextInt();
 		read.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 		
@@ -34,13 +34,13 @@ public class Main {
 		
 		System.out.println("Informe o curso do Aluno: ");
 		String curso = read.nextLine();
-		
+		*/
 		
 		
 		aluno.setNome(nome);
-		aluno.setIdade(idade);
-		aluno.setSemestre(semestre);
-		aluno.setCurso(curso);
+		//aluno.setIdade(idade);
+		//aluno.setSemestre(semestre);
+		//aluno.setCurso(curso);
 		
 		//DISCIPLINA
 			for(int i = 0; i < 2; i++) {
@@ -87,6 +87,32 @@ public class Main {
 				read.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 				
 		}
+			
+			System.out.println("Deseja pesquisar algum aluno pelo indice? 0(sim) / 1(não)");
+			int pesquisarAlu = read.nextInt();
+			read.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+			
+			while(pesquisarAlu == 0) {
+				
+				for(int a = 0; a < 2; a++ ) {
+					System.out.println(a +" - " + aluno.get(a).getNome());
+					System.out.println("Insira o indice que deseja pesquisar: ");
+					int indiceAluno = read.nextInt();
+					
+					if(indiceAluno == 0) {
+						System.out.println("Aluno: " + aluno.toString());
+						
+					
+					}
+					
+					System.out.println("Deseja pesquisar outro aluno ou sair? 0(sim) / 1(não)");
+					pesquisarAlu = read.nextInt();
+					}
+				
+					
+				
+			}
+			
 			
 			
 			alunos.add(aluno);
