@@ -23,30 +23,31 @@ public class Main {
 		System.out.println("Informe o nome do Aluno: ");
 		String nome = read.nextLine();
 		
-		/*System.out.println("Informe a idade do Aluno: ");
+		System.out.println("Informe a idade do Aluno: ");
 		int idade = read.nextInt();
-		read.nextLine();
+		read.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+		
 		
 		System.out.println("Informe o semestre do Aluno: ");
 		String semestre = read.nextLine();
-		read.nextLine();
+		
 		
 		System.out.println("Informe o curso do Aluno: ");
 		String curso = read.nextLine();
-		*/
+		
 		
 		
 		aluno.setNome(nome);
-	//	aluno1.setIdade(idade);
-		//aluno1.setSemestre(semestre);
-		//aluno1.setCurso(curso);
+		aluno.setIdade(idade);
+		aluno.setSemestre(semestre);
+		aluno.setCurso(curso);
 		
 		//DISCIPLINA
 			for(int i = 0; i < 2; i++) {
 			
 			System.out.println("Informe o nome da disciplina número " +i + ": ");
 			String nomeDisciplina = read.nextLine();
-			read.nextLine();
+			
 			
 			System.out.println("Informe a nota da disciplina " +nomeDisciplina + ": ");
 			String notaDisciplina = read.nextLine();
@@ -62,30 +63,30 @@ public class Main {
 		}
 			System.out.println("Deseja remover alguma disciplina? 0(sim) / 1(não)");
 			int removerDisciplina = read.nextInt();
-			read.nextLine();
+			read.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 			
 			
-			int opcao = 0;
+			
 			while(removerDisciplina == 0) {// Menu de opções
 			
-			
+				for(int d = 0; d < aluno.getDisciplinas().size(); d++ ) {
+					System.out.println(d +" - " + aluno.getDisciplinas().get(d).getDisciplina());
+				}
 				
 				System.out.println("Informe o indice da disciplina que deseja remover ");
 				int indice = read.nextInt();
+				
+				
 				
 				aluno.getDisciplinas().remove(indice);
 				
 				System.out.println("Disciplina " + indice + " Removida com sucesso!\n ");
 				
 				System.out.println("Deseja finalizar o programa ou excluir outra disciplina? \n[1]sair [0]excluir outra disciplina");
-				opcao = read.nextInt();
+				removerDisciplina = read.nextInt();
+				read.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 				
-				if(opcao == 1) {
-					System.out.println("Saindo do sistema!");
-					break;
-				}
-				
-			}
+		}
 			
 			
 			alunos.add(aluno);
