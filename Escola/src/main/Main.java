@@ -2,6 +2,9 @@ package main;
 
 import classes.Aluno;
 import classes.Disciplina;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -9,18 +12,41 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner read = new Scanner(System.in);
 		
-		Aluno alu1 = new Aluno();
+		List <Aluno> alunos = new ArrayList<>();
 		
-		alu1.setNome("Renato");
-		alu1.setIdade(25);
-		alu1.setSemestre("5°");
-		alu1.setCurso("ADS");
+		
+		
+		for(int j = 0; j < 2; j++) {
+		
+			Aluno aluno = new Aluno();
+		
+		System.out.println("Informe o nome do Aluno: ");
+		String nome = read.nextLine();
+		
+		/*System.out.println("Informe a idade do Aluno: ");
+		int idade = read.nextInt();
+		read.nextLine();
+		
+		System.out.println("Informe o semestre do Aluno: ");
+		String semestre = read.nextLine();
+		read.nextLine();
+		
+		System.out.println("Informe o curso do Aluno: ");
+		String curso = read.nextLine();
+		*/
+		
+		
+		aluno.setNome(nome);
+	//	aluno1.setIdade(idade);
+		//aluno1.setSemestre(semestre);
+		//aluno1.setCurso(curso);
 		
 		//DISCIPLINA
-			for(int i = 0; i < 3; i++) {
+			for(int i = 0; i < 2; i++) {
 			
 			System.out.println("Informe o nome da disciplina número " +i + ": ");
 			String nomeDisciplina = read.nextLine();
+			read.nextLine();
 			
 			System.out.println("Informe a nota da disciplina " +nomeDisciplina + ": ");
 			String notaDisciplina = read.nextLine();
@@ -31,11 +57,12 @@ public class Main {
 			
 			
 			
-			alu1.getDisciplinas().add(disciplina);
+			aluno.getDisciplinas().add(disciplina);
 			
 		}
 			System.out.println("Deseja remover alguma disciplina? 0(sim) / 1(não)");
 			int removerDisciplina = read.nextInt();
+			read.nextLine();
 			
 			
 			int opcao = 0;
@@ -46,7 +73,7 @@ public class Main {
 				System.out.println("Informe o indice da disciplina que deseja remover ");
 				int indice = read.nextInt();
 				
-				alu1.getDisciplinas().remove(indice);
+				aluno.getDisciplinas().remove(indice);
 				
 				System.out.println("Disciplina " + indice + " Removida com sucesso!\n ");
 				
@@ -61,9 +88,14 @@ public class Main {
 			}
 			
 			
-			
-			
-		System.out.println(alu1);
+			alunos.add(aluno);
+		}
+		
+			for (Aluno aluno1 : alunos) {
+				
+				System.out.println(aluno1);
+			}
+		
 		
 		
 		
