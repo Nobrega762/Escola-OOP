@@ -88,35 +88,42 @@ public class Main {
 				
 		}
 			
+			alunos.add(aluno);
+			
 			System.out.println("Deseja pesquisar algum aluno pelo indice? 0(sim) / 1(não)");
 			int pesquisarAlu = read.nextInt();
 			read.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 			
 			while(pesquisarAlu == 0) {
 				
-				for(int a = 0; a < 2; a++ ) {
-					System.out.println(a +" - " + aluno.get(a).getNome());
-					System.out.println("Insira o indice que deseja pesquisar: ");
-					int indiceAluno = read.nextInt();
+				for(int a = 0; a < alunos.size(); a++ ) {
 					
-					if(indiceAluno == 0) {
-						System.out.println("Aluno: " + aluno.toString());
+					System.out.println(a +" - " + alunos.get(a).getNome()); //************
+				
+				}
+					
+				System.out.println("Insira o indice que deseja pesquisar: ");
+				int indiceAluno = read.nextInt();
+				
+					
+				System.out.println("Aluno: " + alunos.get(indiceAluno).toString()); // *************
 						
 					
-					}
+				
 					
 					System.out.println("Deseja pesquisar outro aluno ou sair? 0(sim) / 1(não)");
 					pesquisarAlu = read.nextInt();
+					read.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 					}
-				
 					
+			
 				
 			}
 			
 			
 			
-			alunos.add(aluno);
-		}
+			
+		
 		
 			for (Aluno aluno1 : alunos) {
 				
