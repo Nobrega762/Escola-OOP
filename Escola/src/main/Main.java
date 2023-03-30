@@ -111,6 +111,9 @@ public class Main {
 
 			}
 
+			
+			//REMOVER ALUNO
+			
 			System.out.println("Deseja remover algum aluno? 0(sim) / 1(não)");
 			int removerAluno = read.nextInt();
 			read.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
