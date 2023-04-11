@@ -138,6 +138,40 @@ public class Main {
 				removerAluno = read.nextInt();
 				read.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 			}
+			
+			
+			//ATUALIZAR ALUNO
+			
+			System.out.println("Deseja atualizar os dados de algum aluno? 0(sim) / 1(não)");
+			int atualizarAluno = read.nextInt();
+			read.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+			
+			while(atualizarAluno == 0) {
+				
+				for (int a = 0; a < alunos.size(); a++) {
+
+					System.out.println(a + " - " + alunos.get(a).getNome());
+
+				}
+				
+				System.out.println("Informe o indice do aluno que deseja atualizar: ");
+					int indiceAlu = read.nextInt();
+					
+				
+					
+					System.out.println("Informe o nome do Aluno: ");
+					String name = read.nextLine();
+					
+					alunos.set(1,aluno.setNome(name));
+					alunos.add(aluno);
+					
+					
+					
+					System.out.println("Digite 1 para sair.");
+					
+			}
+			
+			
 
 		}
 
