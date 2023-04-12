@@ -142,7 +142,7 @@ public class Main {
 			
 			//ATUALIZAR ALUNO
 			
-			System.out.println("Deseja atualizar os dados de algum aluno? 0(sim) / 1(não)");
+			System.out.println("Deseja atualizar o nome de algum aluno? 0(sim) / 1(não)");
 			int atualizarAluno = read.nextInt();
 			read.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 			
@@ -154,22 +154,25 @@ public class Main {
 
 				}
 				
-				System.out.println("Informe o indice do aluno que deseja atualizar: ");
-					int indiceAlu = read.nextInt();
-					
+				System.out.println("Insira o indice do Aluno que deseja alterar o nome: ");
+				int indiceAluno = read.nextInt();
+				read.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 				
-					
-					System.out.println("Informe o nome do Aluno: ");
-					String name = read.nextLine();
-					
-					alunos.set(1,aluno.setNome(name));
-					alunos.add(aluno);
-					
-					
-					
-					System.out.println("Digite 1 para sair.");
-					
+				System.out.println("Insira o novo nome do aluno: ");
+				String novoNome = read.nextLine();
+				read.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+				
+				alunos.get(indiceAluno).setNome(novoNome);
+				
+				System.out.println("Nome alterado com sucesso! ");
+				
+				System.out.println("Deseja atualizar o nome de algum aluno? 0(sim) / 1(não)");
+				atualizarAluno = read.nextInt();
+				read.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+				
 			}
+			
+			
 			
 			
 
