@@ -2,6 +2,7 @@ package main;
 
 import classes.Aluno;
 import classes.Disciplina;
+import metodosEstaticos.SituacaoAluno;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,9 +13,27 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner read = new Scanner(System.in);
 
+		System.out.println("Informe o login: ");
+		String login = read.nextLine();
+
+		System.out.println("Informe a senha: ");
+		String senha = read.nextLine();
+
+		while (!login.equals("admin") || !senha.equals("1234")) {
+			System.out.println("Login/Senha errados, tente novamente!");
+
+			System.out.println("Informe o login: ");
+			login = read.nextLine();
+
+			System.out.println("Informe a senha: ");
+			senha = read.nextLine();
+		}
+
+		// if(login.equals("admin") && senha.equals("1234")) {
+
 		List<Aluno> alunos = new ArrayList<>();
 
-		for (int j = 0; j < 2; j++) {
+		for (int j = 0; j < 3; j++) {
 
 			Aluno aluno = new Aluno();
 
@@ -42,7 +61,7 @@ public class Main {
 			// aluno.setCurso(curso);
 
 			// PASSANDO OS DADOS PRO OBJETO DISCIPLINA
-			for (int i = 0; i < 2; i++) {
+			for (int i = 0; i < 1; i++) {
 
 				System.out.println("Informe o nome da disciplina número " + i + ": ");
 				String nomeDisciplina = read.nextLine();
@@ -111,13 +130,12 @@ public class Main {
 
 			}
 
-			
-			//REMOVER ALUNO
-			
+			// REMOVER ALUNO
+
 			System.out.println("Deseja remover algum aluno? 0(sim) / 1(não)");
 			int removerAluno = read.nextInt();
 			read.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-			
+
 			while (removerAluno == 0) {
 
 				for (int a = 0; a < alunos.size(); a++) {
@@ -138,51 +156,64 @@ public class Main {
 				removerAluno = read.nextInt();
 				read.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 			}
-			
-			
-			//ATUALIZAR ALUNO
-			
+
+			// ATUALIZAR ALUNO
+
 			System.out.println("Deseja atualizar o nome de algum aluno? 0(sim) / 1(não)");
 			int atualizarAluno = read.nextInt();
 			read.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-			
-			while(atualizarAluno == 0) {
-				
+
+			while (atualizarAluno == 0) {
+
 				for (int a = 0; a < alunos.size(); a++) {
 
 					System.out.println(a + " - " + alunos.get(a).getNome());
 
 				}
-				
+
 				System.out.println("Insira o indice do Aluno que deseja alterar o nome: ");
 				int indiceAluno = read.nextInt();
 				read.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-				
+
 				System.out.println("Insira o novo nome do aluno: ");
 				String novoNome = read.nextLine();
 				read.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-				
+
 				alunos.get(indiceAluno).setNome(novoNome);
-				
+
 				System.out.println("Nome alterado com sucesso! ");
-				
+
 				System.out.println("Deseja atualizar o nome de algum aluno? 0(sim) / 1(não)");
 				atualizarAluno = read.nextInt();
 				read.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-				
+
 			}
-			
-			
-			
-			
 
 		}
-
-		for (Aluno aluno1 : alunos) {
-
-			System.out.println(aluno1);
+		// Alunos aprovados
+		System.out.println("Lista de Alunos aprovado: ");
+		for (Aluno aluno : alunos) {
+			if (aluno.situacaoAluno() == SituacaoAluno.APROVADO) {
+				System.out.println(aluno.getNome());
+			}
 		}
 
-	}
+		// Alunos recuperacao
+		System.out.println("Lista de Alunos em recuperacao: ");
+		for (Aluno aluno : alunos) {
+			if (aluno.situacaoAluno() == SituacaoAluno.RECUPERACAO) {
+				System.out.println(aluno.getNome());
+			}
+		}
 
+		// Alunos reprovados
+		System.out.println("Lista de Alunos reprovados: ");
+		for (Aluno aluno : alunos) {
+			if (aluno.situacaoAluno() == SituacaoAluno.REPROVADO) {
+				System.out.println(aluno.getNome());
+			}
+		}
+
+	}// else {System.out.println("Login/Senha errados, tente novamente!");}
 }
+//}

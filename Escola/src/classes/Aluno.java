@@ -3,6 +3,8 @@ package classes;
 import java.util.ArrayList;
 import java.util.List;
 
+import metodosEstaticos.SituacaoAluno;
+
 public class Aluno {
 	private String nome;
 	private int idade;
@@ -66,10 +68,12 @@ public class Aluno {
 	
 	
 	public String situacaoAluno() {
-		if(media()> 7) {
-			return "Aprovado";
+		if(media()>= 7) {
+			return SituacaoAluno.APROVADO;
+		}else if(media() >= 5) {
+			return  SituacaoAluno.RECUPERACAO;
 		}else {
-			return "Reprovado";
+			return SituacaoAluno.REPROVADO;
 		}
 	}
 	
